@@ -1,62 +1,43 @@
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
 
-export const useStore = defineStore('productos', {
-  state: () => {
-    return {
-      productos: [
-        {
-          id: 1,
-          nombre: "Mouse",
-          precio: 86000000,
-          imagen: "https://media.falabella.com/falabellaCO/65682315_1/w=1200,h=1200,fit=pad"
-        },
-        {
-          id: 2,
-          nombre: "Portátil Lenovo Ideapad Slim 3",
-          precio: 2399900,
-          imagen: "https://media.falabella.com.co/falabellaCO/73221262_1/width=240,height=240,quality=70,format=webp,fit=pad"
-        },
-        {
-          id: 3,
-          nombre: "",
-          precio: 86000000,
-          imagen: ""
-        },
-        {
-          id: 4,
-          nombre: "",
-          precio: 83000000,
-          imagen: ""
-        },
-        {
-          id: 5,
-          nombre: "",
-          precio: 86000000,
-          imagen: ""
-        },
-        {
-          id: 6,
-          nombre: "",
-          precio: 83000000,
-          imagen: ""
-        },
-        {
-          id: 7,
-          nombre: "",
-          precio: 86000000,
-          imagen: ""
-        },
-        {
-          id: 8,
-          nombre: "",
-          precio: 83000000,
-          imagen: ""
-        }
-      ]
-    }
-  },
+export const useProductosStore = defineStore("productos", {
+  state: () => ({
+    // El estado inicial es vacío (el camión no ha llegado)
+    productos: [],
+    loading: false, // Para mostrar un spinner o mensaje de "Cargando"
+  }),
 
-  getters: {
-    productosall: (state) => state.productos,
+  actions: {
+    /**
+     * Simula la llegada de datos desde un servidor.
+     * Aquí es donde "llenamos los estantes".
+     */
+    async fetchProductos() {
+      this.loading = true;
+      try {
+        // Simulamos una demora de red de 1 segundo
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        // Aquí defines tus productos con los datos que tengas
+        this.productos = [
+          {
+            id: 1,
+            nombre: "Laptop Gamer Xtreme", // De tus reportes de ventas
+            precio: 3500000,
+            imagen: "/assets/images/products/product1.jpg", // Ruta de tu plantilla
+            descripcion: "Alto rendimiento para ingenieros.",
+          },
+          {
+            id: 2,
+            nombre: "Mouse Óptico",
+            precio: 50000,
+            imagen: "/assets/images/products/product2.jpg",
+            descripcion: "Precisión total.",
+          },
+        ];
+      } finally {
+        this.loading = false;
+      }
+    },
   },
-})
+});
