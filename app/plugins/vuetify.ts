@@ -10,7 +10,7 @@ export default defineNuxtPlugin((app) => {
     components,
     directives,
     theme: {
-      defaultTheme: 'light',
+      defaultTheme: 'dark',
     },
     icons: {
       defaultSet: 'mdi',

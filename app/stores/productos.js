@@ -1,55 +1,62 @@
 import { defineStore } from 'pinia'
 
 export const useStore = defineStore('productos', {
-  // arrow function recommended for full type inference
   state: () => {
     return {
-      // all these properties will have their type inferred automatically
-      productos : [
+      productos: [
         {
-            nombre : "MT09 Y-AMT",
-            precio : 86000000,
-            imagen : "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2018/03/mt09_blue.png"
-        },
-        {
-            nombre : "TRACER 09 GT Y-AMT",
-            precio : 83000000,
-            imagen : "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2019/03/tracer_gris_cat.png"
-        },
-         {
-            nombre : "MT09 Y-AMT",
-            precio : 86000000,
-            imagen : "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2018/03/mt09_blue.png"
+          id: 1,
+          nombre: "Mouse",
+          precio: 86000000,
+          imagen: "https://media.falabella.com/falabellaCO/65682315_1/w=1200,h=1200,fit=pad"
         },
         {
-            nombre : "TRACER 09 GT Y-AMT",
-            precio : 83000000,
-            imagen : "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2019/03/tracer_gris_cat.png"
-        },
-         {
-            nombre : "MT09 Y-AMT",
-            precio : 86000000,
-            imagen : "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2018/03/mt09_blue.png"
+          id: 2,
+          nombre: "Portátil Lenovo Ideapad Slim 3",
+          precio: 2399900,
+          imagen: "https://media.falabella.com.co/falabellaCO/73221262_1/width=240,height=240,quality=70,format=webp,fit=pad"
         },
         {
-            nombre : "TRACER 09 GT Y-AMT",
-            precio : 83000000,
-            imagen : "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2019/03/tracer_gris_cat.png"
-        },
-         {
-            nombre : "MT09 Y-AMT",
-            precio : 86000000,
-            imagen : "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2018/03/mt09_blue.png"
+          id: 3,
+          nombre: "",
+          precio: 86000000,
+          imagen: ""
         },
         {
-            nombre : "TRACER 09 GT Y-AMT",
-            precio : 83000000,
-            imagen : "https://www.incolmotos-yamaha.com.co/wp-content/uploads/2019/03/tracer_gris_cat.png"
+          id: 4,
+          nombre: "",
+          precio: 83000000,
+          imagen: ""
+        },
+        {
+          id: 5,
+          nombre: "",
+          precio: 86000000,
+          imagen: ""
+        },
+        {
+          id: 6,
+          nombre: "",
+          precio: 83000000,
+          imagen: ""
+        },
+        {
+          id: 7,
+          nombre: "",
+          precio: 86000000,
+          imagen: ""
+        },
+        {
+          id: 8,
+          nombre: "",
+          precio: 83000000,
+          imagen: ""
         }
       ]
     }
   },
-    getters: {
-     productosall: (state) => state.productos,
+
+  getters: {
+    productosall: (state) => state.productos,
   },
 })

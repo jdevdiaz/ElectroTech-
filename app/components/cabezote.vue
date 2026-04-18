@@ -5,7 +5,7 @@
      height="100">
      
 
-      <v-toolbar-title text="FERRETERIA EL AMIGO"></v-toolbar-title>
+      <v-toolbar-title text="ELECTROTECHTECH"></v-toolbar-title>
        
         <carrito></carrito>
       

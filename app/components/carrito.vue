@@ -1,14 +1,26 @@
-  <template>
-    <div>
+<script setup>
+// 1. Importamos computed para la reactividad inteligente
+import { computed } from 'vue'
 
-    <v-btn class="text-none" stacked>
-      <v-badge location="top right" color="primary" :content="listadoventas.length" >
-             <v-icon icon="mdi-cart"></v-icon>
-          </v-badge>
+// 2. Accedemos al store de ventas (Nuxt lo auto-importa)
+const storeVentas = useVentas()
+
+// 3. Creamos la propiedad computada que cuenta los productos
+// Cada vez que storeVentas.ventas cambie, este número se actualiza solo.
+const cantidad = computed(() => {
+  return storeVentas.ventasall.length
+})
+</script>
+
+<template>
+  <v-badge
+    color="red"
+    :content="cantidad"
+    :model-value="cantidad > 0"
+    overlap
+  >
+    <v-btn icon>
+      <v-icon>mdi-cart</v-icon>
     </v-btn>
-    </div>
-  </template>
-  <script setup>
- const ventas = useVentas()
- const listadoventas = ventas.ventasall
- </script>
+  </v-badge>
+</template>
