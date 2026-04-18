@@ -1,63 +1,70 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted } from "vue";
 
-// 1. Acceso a los stores (Nuxt los gestiona automáticamente)
-const storeProductos = useStore()
-const storeVentas = useVentas()
+const storeProductos = useStore();
+const storeVentas = useVentas();
 
-const listado = storeProductos.productosall
-
-// --- ESTADO REACTIVO PARA EL DIÁLOGO ---
-// 'isDialogOpen' controla si el modal se ve o no
-const isDialogOpen = ref(false)
-// 'selectedProduct' guarda la moto que el usuario eligió confirmar
-const selectedProduct = ref(null)
-
-// 2. Función que se activa cuando la tarjeta "grita" @solicitarCompra
-const handleSolicitarCompra = (producto) => {
-  selectedProduct.value = producto // Guardamos el producto recibido del hijo
-  isDialogOpen.value = true        // Abrimos el diálogo
-}
-
-// 3. Función que finaliza la compra
-const confirmarCompra = () => {
-  if (selectedProduct.value) {
-    storeVentas.guardar(selectedProduct.value) // Guardamos en Pinia
-    isDialogOpen.value = false                // Cerramos el diálogo
-    console.log("Compra confirmada:", selectedProduct.value.nombre)
-  }
-}
+// Cargamos los productos al montar el componente
+onMounted(() => {
+  storeProductos.fetchProductos();
+});
 </script>
 
 <template>
   <v-container>
-    <v-row class="mt-3" justify="center">
-      <tarjeta 
-        v-for="data in listado" 
-        :key="data.id" 
+    <!-- Estado de carga -->
+    <v-row v-if="storeProductos.loading" justify="center" class="mt-10">
+      <v-progress-circular indeterminate color="orange-darken-2" size="64" />
+    </v-row>
+
+    <!-- Estado de error -->
+    <v-row v-else-if="storeProductos.error" justify="center" class="mt-10">
+      <v-alert type="error" :text="storeProductos.error" />
+    </v-row>
+
+    <!-- Listado de productos -->
+    <v-row v-else class="mt-3" justify="center">
+      <tarjeta
+        v-for="data in storeProductos.productosall"
+        :key="data.id"
         :producto="data"
-        @solicitarCompra="handleSolicitarCompra"
+        @solicitarCompra="storeVentas.solicitarCompra"
       />
     </v-row>
 
-    <v-dialog v-model="isDialogOpen" max-width="450">
-      <v-card v-if="selectedProduct" class="pa-4">
+    <!-- Modal de confirmación (ahora controlado por el store) -->
+    <v-dialog v-model="storeVentas.modalAbierto" max-width="450">
+      <v-card v-if="storeVentas.productoSeleccionado" class="pa-4">
         <v-card-title class="text-h5 text-center">
           Confirmar Pedido
         </v-card-title>
-        
+
         <v-card-text>
-          ¿Estás seguro de que deseas agregar la <strong>{{ selectedProduct.nombre }}</strong> al carrito por 
-          <strong>${{ selectedProduct.precio.toLocaleString() }}</strong>?
+          ¿Deseas agregar
+          <strong>{{ storeVentas.productoSeleccionado.nombre }}</strong>
+          al carrito por
+          <strong
+            >${{
+              storeVentas.productoSeleccionado.precio.toLocaleString()
+            }}</strong
+          >?
         </v-card-text>
 
         <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="grey-darken-1" variant="text" @click="isDialogOpen = false">
-            No, cancelar
+          <v-spacer />
+          <v-btn
+            color="grey-darken-1"
+            variant="text"
+            @click="storeVentas.cancelarCompra"
+          >
+            Cancelar
           </v-btn>
-          <v-btn color="orange-darken-2" variant="elevated" @click="confirmarCompra">
-            Sí, confirmar
+          <v-btn
+            color="orange-darken-2"
+            variant="elevated"
+            @click="storeVentas.confirmarCompra"
+          >
+            Confirmar
           </v-btn>
         </v-card-actions>
       </v-card>

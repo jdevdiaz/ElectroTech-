@@ -1,15 +1,10 @@
 <script setup>
-  // 1. Recibimos el objeto producto del padre
-  const props = defineProps(['producto'])
+const props = defineProps(["producto"]);
+const emit = defineEmits(["solicitarCompra"]);
 
-  // 2. Definimos el "grito" o evento que enviaremos hacia arriba
-  const emit = defineEmits(['solicitarCompra'])
-
-  function avisarCompra() {
-    // 3. En lugar de solo un log, emitimos el evento con el producto
-    emit('solicitarCompra', props.producto)
-    console.log("Evento emitido para:", props.producto.nombre)
-  }
+function avisarCompra() {
+  emit("solicitarCompra", props.producto);
+}
 </script>
 
 <template>
@@ -26,9 +21,9 @@
     </v-img>
 
     <v-card-actions>
-      <v-btn 
-        @click="avisarCompra()" 
-        color="orange-darken-2" 
+      <v-btn
+        @click="avisarCompra"
+        color="orange-darken-2"
         variant="elevated"
         block
       >
