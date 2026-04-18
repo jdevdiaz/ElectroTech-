@@ -1,14 +1,13 @@
 <template>
-  <v-app>
-    <cabezote />
+  <div class="min-h-screen bg-gray-50 text-slate-900">
+    <header>
+      <cabezote />
+    </header>
 
-    <v-main>
-      <managertarjetas />
-    </v-main>
-  </v-app>
+    <main class="container mx-auto p-4">
+      <section id="catalogo">
+        <managertarjetas />
+      </section>
+    </main>
+  </div>
 </template>
-
-<script setup>
-// En Nuxt 4, no necesitas importar los componentes manualmente, 
-// se cargan solos si están en la carpeta 'components'.
-</script>

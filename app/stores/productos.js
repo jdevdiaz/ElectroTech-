@@ -37,28 +37,32 @@ export const useStore = defineStore("productos", {
           },
           {
             id: 3,
-            nombre: "Teclado Mecánico Redragon",
-            precio: 180000,
-            imagen: "https://m.media-amazon.com/images/I/71eapPCNHYL.jpg",
+            nombre: "Combo Teclado Y Mouse Gamer Jaltech Retroiluminado Gt300c",
+            precio: 75900,
+            imagen:
+              "https://media.falabella.com/falabellaCO/119351473_01/w=1200,h=1200,fit=pad",
           },
           {
             id: 4,
-            nombre: 'Monitor Samsung 24"',
+            nombre:
+              'Monitor Gamer 32 Viewsonic Curvo Full Mhd 180hz 1ms Vx3218 Black"',
             precio: 890000,
             imagen:
-              "https://images.samsung.com/is/image/samsung/p6pim/co/ls24r350fhlxzl/gallery/co-t35f-ls24r350fhlxzl-530837687.jpg",
+              "https://media.falabella.com/falabellaCO/151489247_01/w=1200,h=1200,fit=pad",
           },
           {
             id: 5,
-            nombre: "Audífonos Sony WH-1000XM5",
-            precio: 1200000,
-            imagen: "https://m.media-amazon.com/images/I/61vJPgFqz-L.jpg",
+            nombre: " auriculares usb",
+            precio: 120000,
+            imagen:
+              "https://media.falabella.com/falabellaCO/119443688_01/w=1200,h=1200,fit=pad",
           },
           {
             id: 6,
-            nombre: "Webcam Logitech C920",
-            precio: 420000,
-            imagen: "https://m.media-amazon.com/images/I/61DKjDXFHHL.jpg",
+            nombre: "Webcam Camara Web Linkon Fullhd 1080p Usb Microfono ",
+            precio: 84990,
+            imagen:
+              "https://media.falabella.com/falabellaCO/119399366_01/w=1200,h=1200,fit=pad",
           },
         ];
       } catch (e) {
