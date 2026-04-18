@@ -1,35 +1,68 @@
 import { defineStore } from "pinia";
 
-export const useVentasStore = defineStore("ventas", {
+export const useVentas = defineStore("ventas", {
   state: () => ({
-    carrito: [],
-    mostrarModal: false, // Controla la ventana emergente de "Compra Exitosa"
-    productoReciente: null, // Para saber qué producto mostrar en el modal
+    ventas: [],
+    modalAbierto: false,
+    productoSeleccionado: null,
   }),
 
   getters: {
-    // Calcula el total automáticamente (Lógica Senior)
-    totalPagar: (state) => state.carrito.reduce((acc, p) => acc + p.precio, 0),
-    cantidadItems: (state) => state.carrito.length,
+    // Todos los items del carrito
+    ventasall: (state) => state.ventas,
+
+    // Total de unidades (para el badge del carrito)
+    totalItems: (state) => {
+      return state.ventas.reduce((acc, item) => acc + item.cantidad, 0);
+    },
+
+    // Precio total de la compra
+    totalPrecio: (state) => {
+      return state.ventas.reduce(
+        (acc, item) => acc + item.precio * item.cantidad,
+        0,
+      );
+    },
   },
 
   actions: {
-    /**
-     * Agrega un producto y dispara la interfaz
-     */
-    agregarAlCarrito(producto) {
-      this.carrito.push(producto);
-      this.productoReciente = producto;
-      this.mostrarModal = true; // <--- Esto activará la ventana emergente
-
-      // Opcional: Cerrar el modal automáticamente tras 3 segundos
-      setTimeout(() => {
-        this.mostrarModal = false;
-      }, 3000);
+    // Abre el modal guardando el producto seleccionado
+    solicitarCompra(producto) {
+      this.productoSeleccionado = producto;
+      this.modalAbierto = true;
     },
 
-    cerrarModal() {
-      this.mostrarModal = false;
+    // Cierra el modal y limpia la selección
+    cancelarCompra() {
+      this.modalAbierto = false;
+      this.productoSeleccionado = null;
+    },
+
+    // Confirma y agrega al carrito (con lógica de quantity)
+    confirmarCompra() {
+      if (!this.productoSeleccionado) return;
+
+      const existe = this.ventas.find(
+        (item) => item.id === this.productoSeleccionado.id,
+      );
+
+      if (existe) {
+        // Si ya existe, solo aumentamos la cantidad
+        existe.cantidad++;
+      } else {
+        // Si es nuevo, lo agregamos con cantidad 1
+        this.ventas.push({
+          ...this.productoSeleccionado,
+          cantidad: 1,
+        });
+      }
+
+      this.cancelarCompra(); // Cierra el modal al confirmar
+    },
+
+    // Elimina un producto del carrito
+    eliminar(productoId) {
+      this.ventas = this.ventas.filter((item) => item.id !== productoId);
     },
   },
 });
