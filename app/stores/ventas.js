@@ -4,65 +4,69 @@ export const useVentas = defineStore("ventas", {
   state: () => ({
     ventas: [],
     modalAbierto: false,
+    panelAbierto: false, // ← nuevo
     productoSeleccionado: null,
   }),
 
   getters: {
-    // Todos los items del carrito
     ventasall: (state) => state.ventas,
-
-    // Total de unidades (para el badge del carrito)
-    totalItems: (state) => {
-      return state.ventas.reduce((acc, item) => acc + item.cantidad, 0);
-    },
-
-    // Precio total de la compra
-    totalPrecio: (state) => {
-      return state.ventas.reduce(
-        (acc, item) => acc + item.precio * item.cantidad,
-        0,
-      );
-    },
+    totalItems: (state) =>
+      state.ventas.reduce((acc, item) => acc + item.cantidad, 0),
+    totalPrecio: (state) =>
+      state.ventas.reduce((acc, item) => acc + item.precio * item.cantidad, 0),
   },
 
   actions: {
-    // Abre el modal guardando el producto seleccionado
     solicitarCompra(producto) {
       this.productoSeleccionado = producto;
       this.modalAbierto = true;
     },
 
-    // Cierra el modal y limpia la selección
     cancelarCompra() {
       this.modalAbierto = false;
       this.productoSeleccionado = null;
     },
 
-    // Confirma y agrega al carrito (con lógica de quantity)
     confirmarCompra() {
       if (!this.productoSeleccionado) return;
-
       const existe = this.ventas.find(
         (item) => item.id === this.productoSeleccionado.id,
       );
-
       if (existe) {
-        // Si ya existe, solo aumentamos la cantidad
         existe.cantidad++;
       } else {
-        // Si es nuevo, lo agregamos con cantidad 1
-        this.ventas.push({
-          ...this.productoSeleccionado,
-          cantidad: 1,
-        });
+        this.ventas.push({ ...this.productoSeleccionado, cantidad: 1 });
       }
-
-      this.cancelarCompra(); // Cierra el modal al confirmar
+      this.cancelarCompra();
     },
 
-    // Elimina un producto del carrito
+    // Aumentar cantidad desde el panel
+    aumentar(productoId) {
+      const item = this.ventas.find((i) => i.id === productoId);
+      if (item) item.cantidad++;
+    },
+
+    // Disminuir — si llega a 0 se elimina
+    disminuir(productoId) {
+      const item = this.ventas.find((i) => i.id === productoId);
+      if (!item) return;
+      if (item.cantidad > 1) {
+        item.cantidad--;
+      } else {
+        this.eliminar(productoId);
+      }
+    },
+
     eliminar(productoId) {
       this.ventas = this.ventas.filter((item) => item.id !== productoId);
+    },
+
+    abrirPanel() {
+      this.panelAbierto = true;
+    },
+
+    cerrarPanel() {
+      this.panelAbierto = false;
     },
   },
 });

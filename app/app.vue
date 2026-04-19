@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import CarritoPanel from "./components/carritoPanel.vue";
+</script>
+
 <template>
   <div class="min-h-screen bg-gray-50 text-slate-900">
     <header>
@@ -9,5 +13,6 @@
         <managertarjetas />
       </section>
     </main>
+    <carrito-panel />
   </div>
 </template>

@@ -10,11 +10,11 @@ const storeVentas = useVentas();
       class="flex justify-between items-center w-full px-6 py-3 max-w-screen-2xl mx-auto"
     >
       <!-- Logo -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-3 bg-transparent">
         <img
-          src="/logo.jpg"
+          src="/logo.svg"
           alt="ElectroTech"
-          class="h-10 w-auto object-contain"
+          class="h-16 w-auto object-contain"
         />
       </div>
 

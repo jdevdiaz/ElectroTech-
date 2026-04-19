@@ -67,6 +67,7 @@ onUnmounted(() => {
         </div>
 
         <!-- Carrusel -->
+        <!-- Carrusel - reemplaza solo el bloque de la imagen -->
         <div
           class="w-full lg:w-1/2 h-64 lg:h-80 flex items-center justify-center"
         >
@@ -74,7 +75,7 @@ onUnmounted(() => {
             :src="imagenes[indiceActual]"
             :key="indiceActual"
             alt="Producto destacado"
-            class="w-full h-full object-contain drop-shadow-xl transition-all duration-700"
+            class="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal transition-all duration-700"
           />
         </div>
       </div>
