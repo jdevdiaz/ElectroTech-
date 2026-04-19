@@ -12,9 +12,9 @@ const storeVentas = useVentas();
       <!-- Logo -->
       <div class="flex items-center gap-3 bg-transparent">
         <img
-          src="/logo.svg"
+          src="/ElectroTech.svg"
           alt="ElectroTech"
-          class="h-16 w-auto object-contain"
+          class="h-10 w-auto object-contain"
         />
       </div>
 
