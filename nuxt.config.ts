@@ -1,5 +1,5 @@
 import { defineNuxtConfig } from "nuxt/config";
 
 export default defineNuxtConfig({
-  modules: ["@pinia/nuxt", "@nuxtjs/tailwindcss"],
+  modules: ["@pinia/nuxt", "vuetify-nuxt-module"],
 });

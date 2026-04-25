@@ -8,42 +8,46 @@ function avisarCompra() {
 </script>
 
 <template>
-  <article
-    class="bg-white dark:bg-slate-800 border border-transparent hover:border-[#2772a0]/30 rounded-xl overflow-hidden flex flex-col transition-all duration-300 group"
+  <v-card
+    class="d-flex flex-column rounded-xl transition-swing h-100"
+    elevation="1"
+    hover
+    border
   >
-    <!-- Imagen con mix-blend-multiply para eliminar fondo blanco -->
-    <div
-      class="relative h-48 bg-[#ccddea]/30 flex items-center justify-center p-6 group-hover:bg-[#ccddea]/50 transition-colors"
-    >
-      <img
+    <!-- Imagen -->
+    <v-sheet color="#ccddea" class="pa-4 d-flex align-center justify-center" style="background-opacity: 0.3" height="200">
+      <v-img
         :src="producto?.imagen"
         :alt="producto?.nombre"
-        class="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal transition-transform duration-500 group-hover:scale-105"
-      />
-    </div>
+        class="w-100 h-100"
+        style="mix-blend-mode: multiply;"
+        contain
+      ></v-img>
+    </v-sheet>
 
     <!-- Cuerpo -->
-    <div class="p-5 flex flex-col flex-1">
-      <h3 class="text-base font-bold text-slate-800 dark:text-white mb-1">
+    <v-card-item class="flex-grow-1 px-5 pt-5 pb-2">
+      <v-card-title class="text-subtitle-1 font-weight-bold text-wrap" style="line-height: 1.2;">
         {{ producto?.nombre }}
-      </h3>
-      <p
-        class="text-xs text-slate-500 dark:text-slate-400 flex-1 mb-4 line-clamp-2"
-      >
+      </v-card-title>
+      <v-card-subtitle class="text-caption mt-2" style="white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
         {{ producto?.descripcion ?? "Producto de alta calidad ElectroTech." }}
-      </p>
+      </v-card-subtitle>
+    </v-card-item>
 
-      <div class="flex items-center justify-between mt-auto">
-        <span class="text-lg font-black text-[#2772a0]">
-          ${{ producto?.precio.toLocaleString() }}
-        </span>
-        <button
-          @click="avisarCompra"
-          class="w-9 h-9 rounded-lg bg-[#2772a0] hover:bg-[#1a5a87] text-white flex items-center justify-center text-xl font-light transition-all hover:scale-105 active:scale-95"
-        >
-          +
-        </button>
-      </div>
-    </div>
-  </article>
+    <v-card-actions class="px-5 pb-5 pt-0 d-flex justify-space-between align-center mt-auto">
+      <span class="text-h6 font-weight-black text-primary">
+        ${{ producto?.precio.toLocaleString() }}
+      </span>
+      <v-btn
+        color="#2772a0"
+        variant="flat"
+        icon="mdi-plus"
+        size="small"
+        class="rounded-lg"
+        elevation="2"
+        @click="avisarCompra"
+      ></v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
