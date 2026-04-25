@@ -6,9 +6,8 @@ const storeProductos = useStore();
 <template>
   <v-app-bar
     elevation="0"
-    color="white"
     class="px-4 border-b"
-    style="border-color: rgba(0,0,0,0.03) !important;"
+    style="background-color: rgba(255, 255, 255, 0.8) !important; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-color: rgba(0,0,0,0.06) !important; z-index: 100;"
   >
     <!-- Logo -->
     <div class="d-flex align-center flex-shrink-0" style="width: 250px;">

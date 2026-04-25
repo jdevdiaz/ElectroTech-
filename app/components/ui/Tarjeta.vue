@@ -15,15 +15,16 @@ function avisarCompra() {
       :elevation="isHovering ? 10 : 0"
       style="border: 1px solid rgba(0,0,0,0.03);"
     >
-      <!-- Imagen -->
-      <div class="position-relative pa-4 d-flex align-center justify-center" style="background-color: rgba(204, 221, 234, 0.3); height: 220px; overflow: hidden;">
+      <!-- Imagen con efecto BENTO -->
+      <div class="position-relative d-flex align-center justify-center bg-grey-lighten-4 overflow-hidden" style="height: 240px;">
         <v-img
           :src="producto?.imagen"
-          :alt="producto?.nombre"
-          class="w-100 h-100"
-          style="mix-blend-mode: multiply; transition: transform 0.3s ease;"
-          :style="{ transform: isHovering ? 'scale(1.05)' : 'scale(1)' }"
+          alt="Producto"
+          height="180"
+          width="180"
           contain
+          class="transition-swing"
+          :style="isHovering ? 'transform: scale(1.08); mix-blend-mode: multiply;' : 'transform: scale(1); mix-blend-mode: multiply;'"
         ></v-img>
       </div>
 
@@ -43,7 +44,7 @@ function avisarCompra() {
           ${{ producto?.precio.toLocaleString() }}
         </span>
         <v-btn
-          color="primary"
+          color="grey-darken-4"
           variant="flat"
           icon="mdi-plus"
           size="small"

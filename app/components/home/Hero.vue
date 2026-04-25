@@ -25,23 +25,24 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <v-sheet class="py-6 py-md-10 px-6 px-md-12 px-lg-24" style="background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);">
+  <v-sheet class="py-10 py-md-16 px-6 px-md-12 px-lg-24" style="background: radial-gradient(circle at top right, #eef2ff 0%, #fafafb 70%); border-bottom: 1px solid rgba(0,0,0,0.02);">
     <v-container fluid class="max-w-screen-2xl mx-auto pa-0">
       <v-row align="center" justify="space-between">
         <!-- Texto -->
-        <v-col cols="12" lg="6" class="d-flex flex-column align-start ga-6">
-          <v-chip color="primary" text-color="white" class="font-weight-bold text-uppercase" size="small">
-            ElectroTech
+        <v-col cols="12" lg="6" class="d-flex flex-column align-start ga-6 mt-md-8">
+          <v-chip color="grey-darken-4" text-color="white" class="font-weight-black text-uppercase tracking-widest px-4" size="small">
+            ElectroTech Pro
           </v-chip>
-          <h1 class="text-h3 text-lg-h2 font-weight-black text-primary leading-tight">
-            Precisión.<br />Sin compromiso.
+          <h1 class="text-h3 text-lg-h2 font-weight-black text-grey-darken-4 leading-tight" style="line-height: 1.1 !important; letter-spacing: -1.5px !important;">
+            Poder absoluto.<br/>
+            <span class="text-primary">Belleza minimalista.</span>
           </h1>
-          <p class="text-body-1 text-grey-darken-2" style="max-width: 400px;">
+          <p class="text-body-1 text-lg-h6 text-grey-darken-1 max-w-md">
             La próxima generación de electrónica de alto rendimiento para
             quienes exigen lo excepcional.
           </p>
-          <v-btn href="#catalogo" color="primary" size="x-large" class="text-none font-weight-bold mt-2" elevation="2">
-            Explorar catálogo
+          <v-btn href="#catalogo" color="grey-darken-4" size="x-large" class="text-none font-weight-bold mt-4 rounded-xl px-8" elevation="4">
+            Explorar colección
           </v-btn>
         </v-col>
 
