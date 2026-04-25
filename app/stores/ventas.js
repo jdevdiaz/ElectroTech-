@@ -37,13 +37,17 @@ export const useVentas = defineStore("ventas", {
       } else {
         this.ventas.push({ ...this.productoSeleccionado, cantidad: 1 });
       }
+      this.ventas = [...this.ventas]; // Forzar actualización de la cookie
       this.cancelarCompra();
     },
 
     // Aumentar cantidad desde el panel
     aumentar(productoId) {
       const item = this.ventas.find((i) => i.id === productoId);
-      if (item) item.cantidad++;
+      if (item) {
+        item.cantidad++;
+        this.ventas = [...this.ventas];
+      }
     },
 
     // Disminuir — si llega a 0 se elimina
@@ -52,6 +56,7 @@ export const useVentas = defineStore("ventas", {
       if (!item) return;
       if (item.cantidad > 1) {
         item.cantidad--;
+        this.ventas = [...this.ventas];
       } else {
         this.eliminar(productoId);
       }
@@ -59,6 +64,10 @@ export const useVentas = defineStore("ventas", {
 
     eliminar(productoId) {
       this.ventas = this.ventas.filter((item) => item.id !== productoId);
+    },
+
+    vaciarCarrito() {
+      this.ventas = [];
     },
 
     abrirPanel() {

@@ -1,0 +1,55 @@
+<script setup>
+const storeVentas = useVentas();
+const storeProductos = useStore();
+</script>
+
+<template>
+  <v-app-bar
+    elevation="0"
+    color="white"
+    class="px-4 border-b"
+    style="border-color: rgba(0,0,0,0.03) !important;"
+  >
+    <!-- Logo -->
+    <div class="d-flex align-center flex-shrink-0" style="width: 250px;">
+      <v-img
+        src="/ElectroTech.svg"
+        alt="ElectroTech"
+        max-height="40"
+        max-width="150"
+        content-class="object-contain"
+      />
+    </div>
+
+    <!-- Search (Perfectamente centrado y máximo tamaño posible) -->
+    <div class="d-none d-md-flex flex-grow-1 justify-center px-4">
+      <v-text-field
+        v-model="storeProductos.searchQuery"
+        style="max-width: 1000px; width: 100%; font-size: 1.1rem;"
+        density="comfortable"
+        variant="solo"
+        flat
+        bg-color="search-bg"
+        placeholder="¿Qué estás buscando hoy?"
+        prepend-inner-icon="mdi-magnify"
+        single-line
+        hide-details
+        rounded="pill"
+        color="primary"
+      ></v-text-field>
+    </div>
+
+    <v-spacer class="d-md-none" /> <!-- Spacer solo para móviles para empujar botones -->
+
+    <!-- Actions -->
+    <div class="d-flex align-center justify-end flex-shrink-0 ga-2" style="width: 250px;">
+      <!-- Carrito -->
+      <UiCarritoBtn />
+
+      <!-- Login -->
+      <v-btn icon color="primary" variant="text">
+        <v-icon>mdi-account-outline</v-icon>
+      </v-btn>
+    </div>
+  </v-app-bar>
+</template>

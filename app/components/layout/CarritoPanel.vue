@@ -1,5 +1,12 @@
 <script setup>
+import { useRouter } from 'vue-router';
 const storeVentas = useVentas();
+const router = useRouter();
+
+function irAlCheckout() {
+  storeVentas.cerrarPanel();
+  router.push('/checkout');
+}
 </script>
 
 <template>
@@ -80,6 +87,8 @@ const storeVentas = useVentas();
           size="x-large"
           class="font-weight-bold rounded-lg text-none"
           elevation="2"
+          @click="irAlCheckout"
+          :disabled="storeVentas.ventasall.length === 0"
         >
           Proceder al pago
         </v-btn>

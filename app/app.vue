@@ -1,15 +1,29 @@
 <script setup lang="ts">
-import CarritoPanel from "./components/carritoPanel.vue";
+import LayoutCarritoPanel from "./components/layout/CarritoPanel.vue";
 </script>
 
 <template>
-  <v-app class="bg-grey-lighten-4">
-    <cabezote />
+  <v-app class="bg-background">
+    <LayoutCabezote />
 
     <v-main>
-      <managertarjetas />
+      <NuxtPage />
     </v-main>
 
-    <carrito-panel />
+    <LayoutFooter />
+    <LayoutCarritoPanel />
   </v-app>
 </template>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+html, body, .v-application, .v-btn, .v-card-title, .v-card-subtitle, .v-list-item-title {
+  font-family: 'Nunito', sans-serif !important;
+  letter-spacing: normal !important;
+}
+
+.bg-background {
+  background-color: #fafafb !important;
+}
+</style>

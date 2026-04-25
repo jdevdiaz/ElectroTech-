@@ -5,7 +5,7 @@ const storeVentas = useVentas();
 <template>
   <v-btn
     icon
-    color="#2772a0"
+    color="primary"
     variant="text"
     @click="storeVentas.abrirPanel"
   >
