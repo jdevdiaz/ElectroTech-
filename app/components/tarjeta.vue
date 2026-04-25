@@ -15,7 +15,7 @@ function avisarCompra() {
     border
   >
     <!-- Imagen -->
-    <v-sheet color="#ccddea" class="pa-4 d-flex align-center justify-center" style="background-opacity: 0.3" height="200">
+    <div class="pa-4 d-flex align-center justify-center" style="background-color: rgba(204, 221, 234, 0.4); height: 200px;">
       <v-img
         :src="producto?.imagen"
         :alt="producto?.nombre"
@@ -23,7 +23,7 @@ function avisarCompra() {
         style="mix-blend-mode: multiply;"
         contain
       ></v-img>
-    </v-sheet>
+    </div>
 
     <!-- Cuerpo -->
     <v-card-item class="flex-grow-1 px-5 pt-5 pb-2">

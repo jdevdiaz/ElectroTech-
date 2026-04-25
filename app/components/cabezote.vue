@@ -1,5 +1,6 @@
 <script setup>
 const storeVentas = useVentas();
+const storeProductos = useStore();
 </script>
 
 <template>
@@ -22,9 +23,9 @@ const storeVentas = useVentas();
 
     <!-- Search -->
     <v-text-field
-      class="d-none d-md-flex flex-grow-1 mx-8"
-      style="max-width: 600px;"
-      density="compact"
+      v-model="storeProductos.searchQuery"
+      class="d-none d-md-flex flex-grow-1 mx-4"
+      density="default"
       variant="solo-filled"
       bg-color="#ccddea50"
       placeholder="Buscar productos..."

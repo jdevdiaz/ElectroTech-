@@ -41,7 +41,7 @@ onUnmounted(() => {
           <!-- Texto -->
           <v-col cols="12" lg="6" class="d-flex flex-column align-start ga-6">
             <v-chip color="#2772a0" text-color="white" class="font-weight-bold text-uppercase" size="small">
-              New Arrival
+              ElectroTech
             </v-chip>
             <h1 class="text-h3 text-lg-h2 font-weight-black text-primary leading-tight">
               Precisión.<br />Sin compromiso.
@@ -50,7 +50,7 @@ onUnmounted(() => {
               La próxima generación de electrónica de alto rendimiento para
               quienes exigen lo excepcional.
             </p>
-            <v-btn color="#2772a0" size="x-large" class="text-none font-weight-bold mt-2" elevation="2">
+            <v-btn href="#catalogo" color="#2772a0" size="x-large" class="text-none font-weight-bold mt-2" elevation="2">
               Explorar catálogo
             </v-btn>
           </v-col>
@@ -71,72 +71,82 @@ onUnmounted(() => {
     </v-sheet>
 
     <!-- LAYOUT: SIDEBAR + GRID -->
-    <v-container fluid class="pa-0 flex-grow-1 d-flex max-w-screen-2xl mx-auto w-100">
-      <!-- Sidebar -->
-      <v-sheet
-        width="240"
-        class="d-none d-lg-flex flex-column bg-grey-lighten-3 border-e pt-8 flex-shrink-0"
-        min-height="100%"
-      >
-        <div class="px-4 mb-6">
-          <h2 class="text-h6 font-weight-bold text-primary">Catálogo</h2>
-          <p class="text-caption text-grey-darken-1 mt-1">Precisión técnica</p>
-        </div>
-        <v-list bg-color="transparent" class="px-2" nav>
-          <v-list-item link rounded="e-xl" class="mb-1" color="primary" active>
-            <template v-slot:prepend><span class="mr-3">💻</span></template>
-            <v-list-item-title class="font-weight-medium text-primary">Portátiles</v-list-item-title>
-          </v-list-item>
-          <v-list-item link rounded="e-xl" class="mb-1">
-            <template v-slot:prepend><span class="mr-3">🖱️</span></template>
-            <v-list-item-title class="font-weight-medium text-grey-darken-1">Accesorios</v-list-item-title>
-          </v-list-item>
-          <v-list-item link rounded="e-xl" class="mb-1">
-            <template v-slot:prepend><span class="mr-3">🎧</span></template>
-            <v-list-item-title class="font-weight-medium text-grey-darken-1">Audio</v-list-item-title>
-          </v-list-item>
-          <v-list-item link rounded="e-xl" class="mb-1">
-            <template v-slot:prepend><span class="mr-3">🎮</span></template>
-            <v-list-item-title class="font-weight-medium text-grey-darken-1">Gaming</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-sheet>
-
-      <!-- Grid de productos -->
-      <v-main class="pa-6 pa-md-10 flex-grow-1">
-        <div class="mb-8">
-          <h2 class="text-h4 font-weight-black text-grey-darken-4 tracking-tight">Serie Pro</h2>
-          <p class="text-body-2 text-grey-darken-1 mt-1">
-            Potencia sin compromisos para el profesional moderno.
-          </p>
-        </div>
-
-        <!-- Loading -->
-        <div v-if="storeProductos.loading" class="d-flex justify-center align-center" style="height: 256px;">
-          <v-progress-circular indeterminate color="primary" size="64" width="6"></v-progress-circular>
-        </div>
-
-        <!-- Error -->
-        <div v-else-if="storeProductos.error" class="text-center text-error py-12 text-h6">
-          {{ storeProductos.error }}
-        </div>
-
-        <!-- Productos -->
-        <v-row v-else>
-          <v-col
-            v-for="data in storeProductos.productosall"
-            :key="data.id"
-            cols="12"
-            md="6"
-            xl="4"
+    <v-container fluid class="flex-grow-1 mx-auto w-100 pa-0" style="max-width: 1600px;">
+      <v-row no-gutters class="h-100">
+        <!-- Sidebar -->
+        <v-col cols="12" lg="3" xl="2" class="d-none d-lg-block bg-grey-lighten-3 border-e">
+          <v-sheet
+            class="d-flex flex-column bg-transparent pt-8 h-100"
           >
-            <tarjeta
-              :producto="data"
-              @solicitarCompra="storeVentas.solicitarCompra"
-            />
-          </v-col>
-        </v-row>
-      </v-main>
+            <div class="px-6 mb-6">
+              <h2 class="text-h6 font-weight-bold text-primary">Catálogo</h2>
+              <p class="text-caption text-grey-darken-1 mt-1">Precisión técnica</p>
+            </div>
+            <v-list bg-color="transparent" class="px-4" nav>
+              <v-list-item
+                v-for="cat in [
+                  { name: 'Portátiles', icon: '💻' },
+                  { name: 'Accesorios', icon: '🖱️' },
+                  { name: 'Audio', icon: '🎧' },
+                  { name: 'Gaming', icon: '🎮' }
+                ]"
+                :key="cat.name"
+                link
+                rounded="lg"
+                class="mb-1"
+                :color="storeProductos.categoriaSeleccionada === cat.name ? 'primary' : undefined"
+                :active="storeProductos.categoriaSeleccionada === cat.name"
+                @click="storeProductos.setCategoria(cat.name)"
+              >
+                <template v-slot:prepend><span class="mr-3">{{ cat.icon }}</span></template>
+                <v-list-item-title
+                  :class="storeProductos.categoriaSeleccionada === cat.name ? 'font-weight-bold text-primary' : 'font-weight-medium text-grey-darken-1'"
+                >
+                  {{ cat.name }}
+                </v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-sheet>
+        </v-col>
+
+        <!-- Grid de productos -->
+        <v-col cols="12" lg="9" xl="10" id="catalogo">
+          <div class="pa-6 pa-md-12 h-100 bg-grey-lighten-4">
+            <div class="mb-10">
+              <h2 class="text-h3 font-weight-black text-grey-darken-4 tracking-tight">Serie Pro</h2>
+              <p class="text-body-1 text-grey-darken-1 mt-2">
+                Potencia sin compromisos para el profesional moderno.
+              </p>
+            </div>
+
+            <!-- Loading -->
+            <div v-if="storeProductos.loading" class="d-flex justify-center align-center" style="height: 256px;">
+              <v-progress-circular indeterminate color="primary" size="64" width="6"></v-progress-circular>
+            </div>
+
+            <!-- Error -->
+            <div v-else-if="storeProductos.error" class="text-center text-error py-12 text-h6">
+              {{ storeProductos.error }}
+            </div>
+
+            <!-- Productos -->
+            <v-row v-else>
+              <v-col
+                v-for="data in storeProductos.productosall"
+                :key="data.id"
+                cols="12"
+                sm="6"
+                xl="4"
+              >
+                <tarjeta
+                  :producto="data"
+                  @solicitarCompra="storeVentas.solicitarCompra"
+                />
+              </v-col>
+            </v-row>
+          </div>
+        </v-col>
+      </v-row>
     </v-container>
 
     <!-- MODAL de confirmación -->

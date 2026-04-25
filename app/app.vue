@@ -7,11 +7,7 @@ import CarritoPanel from "./components/carritoPanel.vue";
     <cabezote />
 
     <v-main>
-      <v-container class="pa-4">
-        <section id="catalogo">
-          <managertarjetas />
-        </section>
-      </v-container>
+      <managertarjetas />
     </v-main>
 
     <carrito-panel />

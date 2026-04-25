@@ -5,13 +5,36 @@ export const useStore = defineStore("productos", {
     productos: [],
     loading: false,
     error: null,
+    searchQuery: "",
+    categoriaSeleccionada: null,
   }),
 
   getters: {
-    productosall: (state) => state.productos,
+    productosall: (state) => {
+      let result = state.productos;
+      
+      if (state.categoriaSeleccionada) {
+        result = result.filter(p => p.categoria === state.categoriaSeleccionada);
+      }
+      
+      if (state.searchQuery) {
+        const lower = state.searchQuery.toLowerCase();
+        result = result.filter((p) => p.nombre.toLowerCase().includes(lower));
+      }
+      
+      return result;
+    },
   },
 
   actions: {
+    setCategoria(categoria) {
+      if (this.categoriaSeleccionada === categoria) {
+        this.categoriaSeleccionada = null; // Toggle off if clicked again
+      } else {
+        this.categoriaSeleccionada = categoria;
+      }
+    },
+
     async fetchProductos() {
       this.loading = true;
       this.error = null;
@@ -25,6 +48,7 @@ export const useStore = defineStore("productos", {
             id: 1,
             nombre: "Mouse Logitech MX Master 3",
             precio: 320000,
+            categoria: "Accesorios",
             imagen:
               "https://media.falabella.com/falabellaCO/65682315_1/w=1200,h=1200,fit=pad",
           },
@@ -32,6 +56,7 @@ export const useStore = defineStore("productos", {
             id: 2,
             nombre: "Portátil Lenovo Ideapad Slim 3",
             precio: 2399900,
+            categoria: "Portátiles",
             imagen:
               "https://media.falabella.com.co/falabellaCO/73221262_1/width=240,height=240,quality=70,format=webp,fit=pad",
           },
@@ -39,6 +64,7 @@ export const useStore = defineStore("productos", {
             id: 3,
             nombre: "Combo Teclado Y Mouse Gamer Jaltech Retroiluminado Gt300c",
             precio: 75900,
+            categoria: "Gaming",
             imagen:
               "https://media.falabella.com/falabellaCO/119351473_01/w=1200,h=1200,fit=pad",
           },
@@ -47,13 +73,15 @@ export const useStore = defineStore("productos", {
             nombre:
               'Monitor Gamer 32 Viewsonic Curvo Full Mhd 180hz 1ms Vx3218 Black"',
             precio: 890000,
+            categoria: "Gaming",
             imagen:
               "https://media.falabella.com/falabellaCO/151489247_01/w=1200,h=1200,fit=pad",
           },
           {
             id: 5,
-            nombre: " auriculares usb",
+            nombre: " Auriculares usb",
             precio: 120000,
+            categoria: "Audio",
             imagen:
               "https://media.falabella.com/falabellaCO/119443688_01/w=1200,h=1200,fit=pad",
           },
@@ -61,6 +89,7 @@ export const useStore = defineStore("productos", {
             id: 6,
             nombre: "Webcam Camara Web Linkon Fullhd 1080p Usb Microfono ",
             precio: 84990,
+            categoria: "Accesorios",
             imagen:
               "https://media.falabella.com/falabellaCO/119399366_01/w=1200,h=1200,fit=pad",
           },

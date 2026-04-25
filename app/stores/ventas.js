@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const useVentas = defineStore("ventas", {
   state: () => ({
-    ventas: [],
+    ventas: useCookie("cart_items", { default: () => [], watch: true }),
     modalAbierto: false,
     panelAbierto: false, // ← nuevo
     productoSeleccionado: null,
