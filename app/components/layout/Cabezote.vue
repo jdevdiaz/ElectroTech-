@@ -15,8 +15,8 @@ const storeProductos = useStore();
         <v-img
           src="/ELECTROTECH_Head.svg"
           alt="ElectroTech"
-          height="200"
-          width="200"
+          height="240"
+          width="180"
           contain
           class="cursor-pointer"
         />
