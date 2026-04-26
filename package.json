@@ -18,6 +18,8 @@
     "vue-router": "^5.0.4"
   },
   "devDependencies": {
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.2.7",
     "vuetify-nuxt-module": "^0.19.5"
   }
 }

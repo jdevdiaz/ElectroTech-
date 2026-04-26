@@ -33,11 +33,11 @@
   },
   {
     "id": 5,
-    "nombre": "Auriculares Gamer HyperX Cloud II",
-    "precio": 299000,
+    "nombre": "Auriculares Gamer Redragon H260 Hylas RGB PS4 PS5 PC 3.5mm",
+    "precio": 92900,
     "descripcion": "Sonido envolvente 7.1 virtual con la galardonada comodidad de HyperX para largas horas de juego.",
     "categoria": "Audio",
-    "imagen": "https://images.unsplash.com/photo-1599669500515-b3e1ddb58066?w=600&auto=format&fit=crop"
+    "imagen": "https://exitocol.vtexassets.com/arquivos/ids/18541721/auriculares-gamer-redragon-h260-hylas-rgb-ps4-ps5-pc-35mm.jpg?v=638205665897030000"
   },
   {
     "id": 6,
@@ -49,19 +49,19 @@
   },
   {
     "id": 7,
-    "nombre": "Portátil Apple MacBook Pro M3 14\"",
-    "precio": 8500000,
-    "descripcion": "El chip M3 Pro brinda un rendimiento increíble para los flujos de trabajo profesionales más exigentes.",
+    "nombre": "Portátil gaming HP Victus de 15.6\" Intel Core i5, RAM 16 GB, 512 GB SSD, W11",
+    "precio": 3699000,
+    "descripcion": "Procesador: Intel Core i5-13420H (hasta 4.6 GHz con tecnología Intel Turbo Boost, 12 MB de caché L3, 8 núcleos y 12 subprocesos).",
     "categoria": "Portátiles",
-    "imagen": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&auto=format&fit=crop"
+    "imagen": "https://panamericana.vtexassets.com/arquivos/ids/602440-800-auto?v=638899220475230000&width=800&height=auto&aspect=true"
   },
   {
     "id": 8,
-    "nombre": "Teclado Mecánico Keychron K2",
-    "precio": 450000,
+    "nombre": "Teclado Gamer Redragon Dragonborn K630rgb Red Mecanico",
+    "precio": 189500,
     "descripcion": "Teclado mecánico inalámbrico de diseño compacto (75%) con retroiluminación RGB completa.",
     "categoria": "Accesorios",
-    "imagen": "https://images.unsplash.com/photo-1595225476474-87563907a212?w=600&auto=format&fit=crop"
+    "imagen": "https://exitocol.vtexassets.com/arquivos/ids/21424650/teclado-gamer-redragon-dragonborn-k630rgb-red-mecanico-1028232450.jpg?v=638427469384100000"
   },
   {
     "id": 9,
@@ -69,30 +69,94 @@
     "precio": 1250000,
     "descripcion": "Diseño ergonómico, materiales premium y ajustes multidireccionales para sesiones de juego épicas.",
     "categoria": "Gaming",
-    "imagen": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=600&auto=format&fit=crop"
+    "imagen": "https://panamericana.vtexassets.com/arquivos/ids/579752-800-auto?v=639124646977030000&width=800&height=auto&aspect=true"
   },
   {
     "id": 10,
     "nombre": "Audífonos Sony WH-1000XM5",
-    "precio": 1450000,
+    "precio": 189000,
     "descripcion": "Cancelación de ruido líder en la industria y sonido excepcional de alta resolución sin cables.",
     "categoria": "Audio",
-    "imagen": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=600&auto=format&fit=crop"
+    "imagen": "https://exitocol.vtexassets.com/arquivos/ids/32522852/WHCH520P-Inalambricos-SONY-WH-CH520P-Rosado-3714571_a.jpg?v=639065330772300000"
   },
   {
     "id": 11,
-    "nombre": "Micrófono Blue Yeti USB Premium",
+    "nombre": "Micrófono Quadcast™ S HyperX, negro con gris Premium",
     "precio": 520000,
     "descripcion": "El micrófono USB más popular para grabaciones y transmisiones de calidad de estudio profesional.",
     "categoria": "Audio",
-    "imagen": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&auto=format&fit=crop"
+    "imagen": "https://panamericana.vtexassets.com/arquivos/ids/445462-800-auto?v=637927436008800000&width=800&height=auto&aspect=true"
   },
   {
     "id": 12,
-    "nombre": "Monitor LG UltraWide 34\" IPS",
+    "nombre": "Monitor Lenovo Legion R27FC-30 de 27 FHD, negro",
     "precio": 1350000,
     "descripcion": "Pantalla UltraWide 21:9 para una multitarea superior y una experiencia cinemática envolvente.",
     "categoria": "Accesorios",
-    "imagen": "https://images.unsplash.com/photo-1527443224154-c4a3942d4aff?w=600&auto=format&fit=crop"
+    "imagen": "https://panamericana.vtexassets.com/arquivos/ids/630037-800-auto?v=639010855807600000&width=800&height=auto&aspect=true"
+  },
+  {
+    "id": 13,
+    "nombre": "Monitor gaming HP OMEN FHD de 23.8\", negro",
+    "precio": 719900,
+    "descripcion": "El micrófono USB más popular para grabaciones y transmisiones de calidad de estudio profesional.",
+    "categoria": "Gaming",
+    "imagen": "https://panamericana.vtexassets.com/arquivos/ids/554142-800-auto?v=638616666963100000&width=800&height=auto&aspect=true"
+  },
+  {
+    "id": 14,
+    "nombre": "Pin Microsoft 365 Personal 12 Meses MICROSOFT EP232316",
+    "precio": 400000,
+    "descripcion": "Suscripción de 12 meses a Microsoft 365 Personal que incluye aplicaciones premium de Office, 1 TB de almacenamiento en la nube y seguridad avanzada para todos tus dispositivos.",
+    "categoria": "Accesorios",
+    "imagen": "https://exitocol.vtexassets.com/arquivos/ids/32008084/Pin-Microsoft-365-Personal-12-Meses-MICROSOFT-EP2-32316-3683976_a.jpg?v=639010860211870000"
+  },
+  {
+    "id": 15,
+    "nombre": "Portátil táctil HP Pavilion Intel Core i5 1335U RAM 8 GB 512 GB SSD 14ek1011la",
+    "precio": 3599099,
+    "descripcion": "Versátil portátil 2 en 1 con pantalla táctil, procesador Intel Core i5 de 13.ª generación y diseño elegante para máxima productividad y entretenimiento.",
+    "categoria": "Portátiles",
+    "imagen": "https://exitocol.vtexassets.com/arquivos/ids/31515607/Computador-Portatil-X360-HP-Pavilion-Intel-Core-i5-1335U-RAM-8-GB-512-GB-SSD-14-ek1011la-3664753_a.jpg?v=638978905876230000"
+  },
+  {
+    "id": 16,
+    "nombre": "Cable Original Apple Usb Tipo C A Conector Lightning 2 Metros",
+    "precio": 38750,
+    "descripcion": "Cable de carga y sincronización original de Apple con conectores USB-C a Lightning, longitud de 2 metros para mayor comodidad y carga rápida.",
+    "categoria": "Accesorios",
+    "imagen": "https://exitocol.vtexassets.com/arquivos/ids/31902962/cable-original-apple-usb-tipo-c-a-conector-lightning-2-metros.jpg?v=638997898093270000"
+  },
+  {
+    "id": 17,
+    "nombre": "Disco Duro Externo Toshiba 2Tb Hdtb420ek3aa",
+    "precio": 329900,
+    "descripcion": "Disco duro externo portátil de 2 TB con interfaz USB 3.0 para transferencias de datos ultrarrápidas y almacenamiento seguro de tus archivos importantes.",
+    "categoria": "Accesorios",
+    "imagen": "https://exitocol.vtexassets.com/arquivos/ids/24306195/disco-duro-externo-toshiba-2tb-hdtb420ek3aa.jpg?v=638604814644430000"
+  },
+  {
+    "id": 18,
+    "nombre": "Auriculares Jbl Tune 720Bt Bluetooth Color Negro",
+    "precio": 181899,
+    "descripcion": "Auriculares inalámbricos de diadema con sonido JBL Pure Bass, conexión Bluetooth 5.3 y hasta 76 horas de autonomía para disfrutar de tu música sin interrupciones.",
+    "categoria": "Audio",
+    "imagen": "https://exitocol.vtexassets.com/arquivos/ids/21351043/los-auriculares-jbl-tune-720bt-transmiten-el-potente-sonido-jbl-pure-bass-gracias-a-la-ltima-tecnologa-53-bt-estos-auriculares-1028530921.jpg?v=638423397964630000"
+  },
+  {
+    "id": 19,
+    "nombre": "Memoria Microsd Xc 128Gb Sandisk Extreme Uhs I Con Adaptador Sd",
+    "precio": 164638,
+    "descripcion": "Tarjeta de memoria de alto rendimiento de 128 GB, ideal para smartphones, cámaras de acción y drones, con velocidades de transferencia rápidas y adaptador SD incluido.",
+    "categoria": "Accesorios",
+    "imagen": "https://exitocol.vtexassets.com/arquivos/ids/24284414/memoria-microsd-xc-128gb-sandisk-extreme-uhs-i-con-adaptador-sd.jpg?v=638604566329330000"
+  },
+  {
+    "id": 20,
+    "nombre": "Portátil LENOVO IdeaPad Slim 3 AMD Ryzen 7 7735HS RAM 24 GB 1 TB SSD IP-S3",
+    "precio": 2799900,
+    "descripcion": "Portátil versátil con procesador AMD Ryzen 7 de alto rendimiento, 24 GB de RAM y amplio almacenamiento SSD de 1 TB para máxima productividad y entretenimiento.",
+    "categoria": "Portátiles",
+    "imagen": "https://exitocol.vtexassets.com/arquivos/ids/32638771/Portatil-LENOVO-IdeaPad-Slim-3-AMD-Ryzen-7-7735HS-RAM-24-GB-1-TB-SSD-IP-S3-3790987_b.jpg?v=639076333948400000"
   }
 ]

@@ -12,7 +12,7 @@ const storeProductos = useStore();
     <!-- Logo -->
     <div class="d-flex align-center flex-shrink-0" style="width: 250px;">
       <v-img
-        src="/ElectroTech.svg"
+        src="/ELECTROTECH.svg"
         alt="ElectroTech"
         max-height="40"
         max-width="150"

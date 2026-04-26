@@ -8,6 +8,7 @@ const imagenes = [
   "https://media.falabella.com/falabellaCO/119351473_01/w=1200,h=1200,fit=pad",
   "https://media.falabella.com/falabellaCO/151489247_01/w=1200,h=1200,fit=pad",
   "https://media.falabella.com/falabellaCO/119443688_01/w=1200,h=1200,fit=pad",
+  "https://panamericana.vtexassets.com/arquivos/ids/602440-800-auto?v=638899220475230000&width=800&height=auto&aspect=true"
 ];
 
 const indiceActual = ref(0);
