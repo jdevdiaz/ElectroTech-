@@ -10,17 +10,17 @@ const storeProductos = useStore();
     style="background-color: rgba(255, 255, 255, 0.8) !important; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-color: rgba(0,0,0,0.06) !important; z-index: 100;"
   >
     <!-- Logo -->
-    <div class="d-flex align-center flex-shrink-0" style="width: 250px;">
+    <div class="d-flex align-center flex-shrink-0" style="width: 270px;">
       <v-img
         src="/ELECTROTECH.svg"
         alt="ElectroTech"
-        max-height="40"
-        max-width="150"
+        height="220"
+        width="500"
         content-class="object-contain"
       />
     </div>
 
-    <!-- Search (Perfectamente centrado y máximo tamaño posible) -->
+  
     <div class="d-none d-md-flex flex-grow-1 justify-center px-4">
       <v-text-field
         v-model="storeProductos.searchQuery"
@@ -38,8 +38,7 @@ const storeProductos = useStore();
       ></v-text-field>
     </div>
 
-    <v-spacer class="d-md-none" /> <!-- Spacer solo para móviles para empujar botones -->
-
+    <v-spacer class="d-md-none" /> 
     <!-- Actions -->
     <div class="d-flex align-center justify-end flex-shrink-0 ga-2" style="width: 250px;">
       <!-- Carrito -->

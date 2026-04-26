@@ -48,7 +48,7 @@ onUnmounted(() => {
         </v-col>
 
         <!-- Carrusel -->
-        <v-col cols="12" lg="6" class="d-flex align-center justify-center" style="height: 240px;">
+        <v-col cols="12" lg="6" class="d-flex align-center justify-center" style="height: 400px;">
           <div class="animacion-flotar w-100 h-100" style="mix-blend-mode: multiply;">
             <v-img
               :src="imagenes[indiceActual]"

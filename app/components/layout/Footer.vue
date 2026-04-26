@@ -1,7 +1,7 @@
 <template>
   <v-footer color="black" class="py-12 mt-16">
     <v-container class="d-flex flex-column align-center text-center">
-      <v-img src="/ElectroTech.svg" max-width="180" class="mb-6" style="filter: brightness(0) invert(1); opacity: 0.8;"></v-img>
+      <v-img src="/ELECTROTECH.svg" max-width="180" class="mb-6" style="filter: brightness(0) invert(1); opacity: 0.8;"></v-img>
       <p class="text-body-1 text-grey-darken-1 mb-6 max-w-md">La mejor tienda de electrónica de córdoba, diseñada con precisión absoluta para el mundo moderno.</p>
       
       <div class="d-flex ga-4 mb-8">
