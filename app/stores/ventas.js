@@ -1,81 +1,109 @@
 import { defineStore } from "pinia";
+import { ref, computed } from "vue";
 
-export const useVentas = defineStore("ventas", {
-  state: () => ({
-    ventas: useCookie("cart_items", { default: () => [], watch: true }),
-    modalAbierto: false,
-    panelAbierto: false, // ← nuevo
-    productoSeleccionado: null,
-  }),
+export const useVentas = defineStore("ventas", () => {
+  // Estado persistido con cookie
+  // Usamos maxAge para asegurar que la cookie dure más de una sesión
+  const ventas = useCookie("cart_items", { 
+    default: () => [], 
+    watch: true,
+    maxAge: 60 * 60 * 24 * 7 // 1 semana
+  });
 
-  getters: {
-    ventasall: (state) => state.ventas,
-    totalItems: (state) =>
-      state.ventas.reduce((acc, item) => acc + item.cantidad, 0),
-    totalPrecio: (state) =>
-      state.ventas.reduce((acc, item) => acc + item.precio * item.cantidad, 0),
-  },
+  const modalAbierto = ref(false);
+  const panelAbierto = ref(false);
+  const productoSeleccionado = ref(null);
 
-  actions: {
-    solicitarCompra(producto) {
-      this.productoSeleccionado = producto;
-      this.modalAbierto = true;
-    },
+  // Getters
+  const ventasall = computed(() => ventas.value);
+  const totalItems = computed(() =>
+    ventas.value.reduce((acc, item) => acc + item.cantidad, 0)
+  );
+  const totalPrecio = computed(() =>
+    ventas.value.reduce((acc, item) => acc + item.precio * item.cantidad, 0)
+  );
 
-    cancelarCompra() {
-      this.modalAbierto = false;
-      this.productoSeleccionado = null;
-    },
+  // Acciones
+  const solicitarCompra = (producto) => {
+    productoSeleccionado.value = producto;
+    modalAbierto.value = true;
+  };
 
-    confirmarCompra() {
-      if (!this.productoSeleccionado) return;
-      const existe = this.ventas.find(
-        (item) => item.id === this.productoSeleccionado.id,
-      );
-      if (existe) {
-        existe.cantidad++;
-      } else {
-        this.ventas.push({ ...this.productoSeleccionado, cantidad: 1 });
-      }
-      this.ventas = [...this.ventas]; // Forzar actualización de la cookie
-      this.cancelarCompra();
-    },
+  const cancelarCompra = () => {
+    modalAbierto.value = false;
+    productoSeleccionado.value = null;
+  };
 
-    // Aumentar cantidad desde el panel
-    aumentar(productoId) {
-      const item = this.ventas.find((i) => i.id === productoId);
-      if (item) {
-        item.cantidad++;
-        this.ventas = [...this.ventas];
-      }
-    },
+  const confirmarCompra = () => {
+    if (!productoSeleccionado.value) return;
 
-    // Disminuir — si llega a 0 se elimina
-    disminuir(productoId) {
-      const item = this.ventas.find((i) => i.id === productoId);
-      if (!item) return;
-      if (item.cantidad > 1) {
-        item.cantidad--;
-        this.ventas = [...this.ventas];
-      } else {
-        this.eliminar(productoId);
-      }
-    },
+    const existe = ventas.value.find(
+      (item) => item.id === productoSeleccionado.value.id
+    );
 
-    eliminar(productoId) {
-      this.ventas = this.ventas.filter((item) => item.id !== productoId);
-    },
+    if (existe) {
+      existe.cantidad++;
+    } else {
+      ventas.value.push({ ...productoSeleccionado.value, cantidad: 1 });
+    }
+    
+    // Forzamos la actualización de la cookie reasignando el array
+    ventas.value = [...ventas.value];
+    cancelarCompra();
+  };
 
-    vaciarCarrito() {
-      this.ventas = [];
-    },
+  const aumentar = (productoId) => {
+    const item = ventas.value.find((i) => i.id === productoId);
+    if (item) {
+      item.cantidad++;
+      ventas.value = [...ventas.value];
+    }
+  };
 
-    abrirPanel() {
-      this.panelAbierto = true;
-    },
+  const disminuir = (productoId) => {
+    const item = ventas.value.find((i) => i.id === productoId);
+    if (!item) return;
 
-    cerrarPanel() {
-      this.panelAbierto = false;
-    },
-  },
+    if (item.cantidad > 1) {
+      item.cantidad--;
+      ventas.value = [...ventas.value];
+    } else {
+      eliminar(productoId);
+    }
+  };
+
+  const eliminar = (productoId) => {
+    ventas.value = ventas.value.filter((item) => item.id !== productoId);
+  };
+
+  const vaciarCarrito = () => {
+    ventas.value = [];
+  };
+
+  const abrirPanel = () => {
+    panelAbierto.value = true;
+  };
+
+  const cerrarPanel = () => {
+    panelAbierto.value = false;
+  };
+
+  return {
+    ventas,
+    modalAbierto,
+    panelAbierto,
+    productoSeleccionado,
+    ventasall,
+    totalItems,
+    totalPrecio,
+    solicitarCompra,
+    cancelarCompra,
+    confirmarCompra,
+    aumentar,
+    disminuir,
+    eliminar,
+    vaciarCarrito,
+    abrirPanel,
+    cerrarPanel,
+  };
 });

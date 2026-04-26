@@ -158,5 +158,13 @@
     "descripcion": "Portátil versátil con procesador AMD Ryzen 7 de alto rendimiento, 24 GB de RAM y amplio almacenamiento SSD de 1 TB para máxima productividad y entretenimiento.",
     "categoria": "Portátiles",
     "imagen": "https://exitocol.vtexassets.com/arquivos/ids/32638771/Portatil-LENOVO-IdeaPad-Slim-3-AMD-Ryzen-7-7735HS-RAM-24-GB-1-TB-SSD-IP-S3-3790987_b.jpg?v=639076333948400000"
+  },
+  {
+    "id": 21,
+    "nombre": "Mouse 530 Inalámbrico LENOVO",
+    "precio": 59994,
+    "descripcion": "Mause de alta sensibilidad",
+    "categoria": "Accesorios",
+    "imagen": "https://exitocol.vtexassets.com/arquivos/ids/32657872/Mouse-Bluetooth-LENOVO-3523704_a.jpg?v=639080869959530000"
   }
 ]
