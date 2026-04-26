@@ -10,14 +10,17 @@ const storeProductos = useStore();
     style="background-color: rgba(255, 255, 255, 0.8) !important; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-color: rgba(0,0,0,0.06) !important; z-index: 100;"
   >
     <!-- Logo -->
-    <div class="d-flex align-center flex-shrink-0" style="width: 270px;">
-      <v-img
-        src="/ELECTROTECH.svg"
-        alt="ElectroTech"
-        height="220"
-        width="500"
-        content-class="object-contain"
-      />
+    <div class="d-flex align-center flex-shrink-0" style="width: 200px;">
+      <NuxtLink to="/" class="text-decoration-none d-flex align-center">
+        <v-img
+          src="/ELECTROTECH_Head.svg"
+          alt="ElectroTech"
+          height="200"
+          width="200"
+          contain
+          class="cursor-pointer"
+        />
+      </NuxtLink>
     </div>
 
   
