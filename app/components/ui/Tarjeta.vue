@@ -15,7 +15,7 @@ function avisarCompra() {
       :elevation="isHovering ? 10 : 0"
       style="border: 1px solid rgba(0,0,0,0.03);"
     >
-      <!-- Imagen con efecto BENTO -->
+      
       <div class="position-relative d-flex align-center justify-center bg-grey-lighten-4 overflow-hidden" style="height: 240px;">
         <v-img
           :src="producto?.imagen"
