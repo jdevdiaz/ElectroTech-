@@ -5,7 +5,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 const imagenes = [
   "https://media.falabella.com/falabellaCO/65682315_1/w=1200,h=1200,fit=pad",
   "https://media.falabella.com.co/falabellaCO/73221262_1/width=240,height=240,quality=70,format=webp,fit=pad",
-  "https://media.falabella.com/falabellaCO/119351473_01/w=1200,h=1200,fit=pad",
+  "https://panamericana.vtexassets.com/arquivos/ids/630037-800-auto?v=639010855807600000&width=800&height=auto&aspect=true",
   "https://media.falabella.com/falabellaCO/151489247_01/w=1200,h=1200,fit=pad",
   "https://media.falabella.com/falabellaCO/119443688_01/w=1200,h=1200,fit=pad",
   "https://panamericana.vtexassets.com/arquivos/ids/602440-800-auto?v=638899220475230000&width=800&height=auto&aspect=true"

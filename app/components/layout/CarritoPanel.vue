@@ -15,6 +15,7 @@ function irAlCheckout() {
     location="right"
     temporary
     width="400"
+    style="max-width: 100vw;"
     class="d-flex flex-column"
   >
     <!-- Header -->
@@ -42,7 +43,7 @@ function irAlCheckout() {
         elevation="0"
         border
       >
-        <div class="d-flex pa-3">
+        <div class="d-flex pa-3 overflow-hidden">
           <v-img
             :src="item.imagen"
             width="80"
@@ -52,10 +53,10 @@ function irAlCheckout() {
             contain
           ></v-img>
           
-          <div class="ml-4 flex-grow-1 min-w-0 d-flex flex-column justify-space-between">
-            <div class="d-flex justify-space-between align-start">
-              <div class="text-subtitle-2 font-weight-bold text-truncate">{{ item.nombre }}</div>
-              <v-btn icon="mdi-delete" variant="text" size="small" color="grey-lighten-1" class="ml-1" @click="storeVentas.eliminar(item.id)"></v-btn>
+          <div class="ml-4 flex-grow-1 overflow-hidden d-flex flex-column justify-space-between">
+            <div class="d-flex justify-space-between align-start w-100">
+              <div class="text-subtitle-2 font-weight-bold text-truncate flex-grow-1 mr-2">{{ item.nombre }}</div>
+              <v-btn icon="mdi-delete" variant="text" size="small" color="grey-lighten-1" class="flex-shrink-0" @click="storeVentas.eliminar(item.id)"></v-btn>
             </div>
             
             <div class="text-body-2 text-primary font-weight-bold">
